@@ -1,3 +1,15 @@
+This app will draw from archive.org's massive collection of live recordings.  At the basic level, users will be able to select a band and a year and
+the app will play random live recordings in a loop (like Pandora)
+
+MVP: No backend, users can select a band and a year.  play, pause and skip next buttons.
+
+Bronze: Users can select multiple artists and multiple years.Add backend (express with mongoDB) which will make api calls and pass info to front end.
+
+Silver:  Add logic for like / dislike (if user dislikes a band maybe take that out of the search criteria)
+
+Gold: add users. as app moves from one song to the next, users can like a song which will add it to a playlist that they can then replay at any time.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -283,7 +295,7 @@ In the WebStorm menu `Run` select `Edit Configurations...`. Then click `+` and s
 
 Start your app by running `npm start`, then press `^D` on macOS or `F9` on Windows and Linux or click the green debug icon to start debugging in WebStorm.
 
-The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine. 
+The same way you can debug your application in IntelliJ IDEA Ultimate, PhpStorm, PyCharm Pro, and RubyMine.
 
 ## Formatting Code Automatically
 
@@ -1769,7 +1781,7 @@ If you’re using [Apache HTTP Server](https://httpd.apache.org/), you need to c
     RewriteRule ^ index.html [QSA,L]
 ```
 
-It will get copied to the `build` folder when you run `npm run build`. 
+It will get copied to the `build` folder when you run `npm run build`.
 
 If you’re using [Apache Tomcat](http://tomcat.apache.org/), you need to follow [this Stack Overflow answer](https://stackoverflow.com/a/41249464/4878474).
 
