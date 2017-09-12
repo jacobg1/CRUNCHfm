@@ -24,10 +24,9 @@ class Filter extends Component {
       return (
         <option key={index + 1} value={artist[0]}>{artist[0]}</option>
       )
-
     })
     artistList.unshift(
-      <option key="0">Please Select a band</option>
+      <option key='0'>Please Select a band</option>
     )
     let yearList = this.props.years.map((year, index) => {
       return (
@@ -51,6 +50,7 @@ class Filter extends Component {
           </select>
           <input type='submit' value='submit' />
         </form>
+        <p className='station'></p>
       </div>
     )
   }

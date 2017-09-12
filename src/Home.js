@@ -55,6 +55,7 @@ class Home extends Component {
   submitYearChoice (e) {
     e.preventDefault()
     // console.log(this.state.yearChoice)
+    $('.station').append(`<p>` + this.state.artistName + `, ` + this.state.yearChoice + `</p>`)
   }
 
   getSearch () {
