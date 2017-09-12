@@ -9,7 +9,8 @@ import {
 import './App.css'
 import Player from './Player.js'
 import $ from 'jquery'
-
+import Filter from './Filter.js'
+import dropDownChoices from './dropDownChoices.js'
 
 class Home extends Component {
   constructor (props) {
@@ -17,7 +18,8 @@ class Home extends Component {
     this.state = {
       concertArray: [],
       mp3Url: null,
-      concertId: null
+      concertId: null,
+      dropDownChoices: dropDownChoices
     }
     this.getSearch('grateful_dead', '1970')
     this.nextSong = this.nextSong.bind(this)
@@ -96,6 +98,9 @@ class Home extends Component {
       <Router>
         <div className='App'>
           <h2>Show Crawler</h2>
+          <Filter
+          dropDownChoices={this.state.dropDownChoices}
+          />
           <Player
           nextSong={this.nextSong}
           songUrl={this.state.mp3Url} />
