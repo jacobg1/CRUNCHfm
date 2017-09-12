@@ -3,3 +3,12 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+#buttons {
+  position: fixed;
+  top: 0;
+}
+#player {
+  position: fixed;
+  top: 0;
+  right: 0;
+}

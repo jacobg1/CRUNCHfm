@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
-import Search from './Search.js'
 
 class Player extends Component {
-  constructor (props) {
-    super(props)
-  }
+
   remove () {
     $('audio').remove()
-    $('#player').append(`<audio controls><source src="` + this.props.searchUrl + `"></audio>`)
+    $('#player').append(`<audio controls><source src="` + this.props.songUrl + `"></audio>`)
   }
   start () {
     // console.log(this.props.searchUrl);
 
-    $('#player').append(`<audio controls><source src="` + this.props.searchUrl + `"></audio>`)
+    $('#player').append(`<audio controls><source src="` + this.props.songUrl + `"></audio>`)
     $('audio').addClass('audio')
   }
   render () {
     return (
       <div>
+      <div id="buttons">
         <button onClick={() => this.start()}>start</button>
         <button onClick={() => this.remove()}>remove</button>
+        <button onClick={() => this.props.nextSong()}>next</button>
+        </div>
         <div id='player' />
 
       </div>
