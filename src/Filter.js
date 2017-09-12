@@ -22,13 +22,13 @@ class Filter extends Component {
   render () {
     let artistList = this.state.artistArray.map((artist, index) => {
       return (
-        <option key={index} value={artist[0]}>{artist[0]}</option>
+        <option key={index + 1} value={artist[0]}>{artist[0]}</option>
       )
-      // artistList.unshift(
-      //   <option key="0">Please Select a band</option>
-      // )
-    })
 
+    })
+    artistList.unshift(
+      <option key="0">Please Select a band</option>
+    )
     let yearList = this.props.years.map((year, index) => {
       return (
         <option key={index} value={year}>{year}</option>
