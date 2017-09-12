@@ -16,3 +16,26 @@ audio {
   background-color: red;
   color: red;
 }
+select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+
+   }
+   #artistOption, #yearOption {
+      width: 240px;
+      height: 34px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-image: url(./images/guitar_icon.png);
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 32px;
+
+      }
