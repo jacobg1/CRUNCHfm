@@ -4,22 +4,33 @@ import $ from 'jquery'
 class Player extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      playing: true
-    }
   }
   remove () {
-    $('#player').remove()
+    // $('#player').remove()
     $('audio').append(`<source src="` + this.props.songUrl + `"/>`)
   }
   start () {
+    this.props.getSearch()
     // console.log(this.props.searchUrl);
-    $('#player').append()
-    $('audio').append(`<source src="` + this.props.songUrl + `"/>`)
-    $('audio').addClass('audio')
+    // $('#player').append()
+    // $('audio').attr('src', this.props.songUrl)
+    // $('audio').attr('src', this.props.songUrl)
+    $('audio').attr('src', this.props.songUrl)
+    this.next()
+
+    // $('audio').addClass('audio')
     // $('.audio').bind('ended', function () {
     //   this.props.nextSong()
     // })
+  }
+  next () {
+    console.log(this.props.songUrl)
+
+    this.nextSong()
+  }
+  nextSong () {
+    this.props.getSearch()
+
   }
 
   render () {
@@ -28,12 +39,11 @@ class Player extends Component {
         <div id='buttons'>
           <button onClick={() => this.start()}>start</button>
           <button onClick={() => this.remove()}>remove</button>
-          <button onClick={() => this.props.getSearch()}>next</button>
+          <button onClick={() => this.next()}>next</button>
         </div>
 
         <div id='player' />
-        <audio controls autoPlay onEnded={() => this.props.getSearch()}>
-        </audio>
+        <audio controls autoPlay src={this.props.songUrl} onEnded={() => this.next()} />
       </div>
     )
   }
