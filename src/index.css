@@ -3,12 +3,16 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-#buttons {
+/*#buttons {
   position: fixed;
   top: 0;
-}
-#player {
+}*/
+audio {
   position: fixed;
-  top: 0;
-  right: 0;
+  bottom: 0;
+  display: block;
+  height: 200px;
+  width: 100%;
+  background-color: red;
+  color: red;
 }

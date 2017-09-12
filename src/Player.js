@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
+import './index.css'
 
 class Player extends Component {
   constructor (props) {
@@ -16,6 +17,8 @@ class Player extends Component {
     // $('audio').attr('src', this.props.songUrl)
     // $('audio').attr('src', this.props.songUrl)
     $('audio').attr('src', this.props.songUrl)
+    console.log(this.props.songUrl)
+
     this.next()
 
     // $('audio').addClass('audio')
@@ -24,26 +27,23 @@ class Player extends Component {
     // })
   }
   next () {
-    console.log(this.props.songUrl)
-
     this.nextSong()
   }
   nextSong () {
     this.props.getSearch()
-
   }
 
   render () {
     return (
       <div>
-        <div id='buttons'>
-          <button onClick={() => this.start()}>start</button>
-          <button onClick={() => this.remove()}>remove</button>
-          <button onClick={() => this.next()}>next</button>
-        </div>
-
+      <div id='buttons'>
+        <button onClick={() => this.start()}>start</button>
+        <button onClick={() => this.remove()}>remove</button>
+        <button onClick={() => this.next()}>next</button>
+      </div>
         <div id='player' />
         <audio controls autoPlay src={this.props.songUrl} onEnded={() => this.next()} />
+
       </div>
     )
   }
