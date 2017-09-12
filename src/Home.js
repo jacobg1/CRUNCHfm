@@ -19,10 +19,22 @@ class Home extends Component {
       concertArray: [],
       mp3Url: null,
       concertId: null,
-      dropDownChoices: dropDownChoices
+      dropDownChoices: dropDownChoices,
+      artistName: ''
     }
     this.getSearch('grateful_dead', '1970')
     this.nextSong = this.nextSong.bind(this)
+    this.setArtistName = this.setArtistName.bind(this)
+    this.submitArtistName = this.submitArtistName.bind(this)
+  }
+  setArtistName (e) {
+    this.setState({
+      artistName: e.target.value
+    })
+  }
+  submitArtistName (e) {
+    e.preventDefault()
+    console.log(this.state.artistName)
   }
 
   getSearch (band, year) {
@@ -99,11 +111,13 @@ class Home extends Component {
         <div className='App'>
           <h2>Show Crawler</h2>
           <Filter
-          dropDownChoices={this.state.dropDownChoices}
+            dropDownChoices={this.state.dropDownChoices}
+            setArtistName={this.setArtistName}
+            submitArtistName={this.submitArtistName}
           />
           <Player
-          nextSong={this.nextSong}
-          songUrl={this.state.mp3Url} />
+            nextSong={this.nextSong}
+            songUrl={this.state.mp3Url} />
         </div>
       </Router>
     )
