@@ -20,21 +20,40 @@ class Home extends Component {
       mp3Url: null,
       concertId: null,
       dropDownChoices: dropDownChoices,
-      artistName: ''
+      artistName: '',
+      years: [' '],
+      yearChoice: ''
     }
     this.getSearch('grateful_dead', '1970')
     this.nextSong = this.nextSong.bind(this)
     this.setArtistName = this.setArtistName.bind(this)
     this.submitArtistName = this.submitArtistName.bind(this)
+    this.setYearChoice = this.setYearChoice.bind(this)
+    this.submitYearChoice = this.submitYearChoice.bind(this)
   }
   setArtistName (e) {
     this.setState({
-      artistName: e.target.value
+      artistName: e.target.value,
+      yearChoice: [' ']
     })
   }
   submitArtistName (e) {
     e.preventDefault()
+    let years = dropDownChoices[this.state.artistName]
     console.log(this.state.artistName)
+    console.log(years)
+    this.setState({
+      years: years
+    })
+  }
+  setYearChoice (e) {
+    this.setState({
+      yearChoice: e.target.value
+    })
+  }
+  submitYearChoice (e) {
+    e.preventDefault()
+    console.log(this.state.yearChoice)
   }
 
   getSearch (band, year) {
@@ -112,8 +131,12 @@ class Home extends Component {
           <h2>Show Crawler</h2>
           <Filter
             dropDownChoices={this.state.dropDownChoices}
+            years={this.state.years}
+            yearChoice={this.state.yearChoice}
             setArtistName={this.setArtistName}
             submitArtistName={this.submitArtistName}
+            setYearChoice={this.setYearChoice}
+            submitYearChoice={this.submitYearChoice}
           />
           <Player
             nextSong={this.nextSong}

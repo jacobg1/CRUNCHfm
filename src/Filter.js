@@ -7,13 +7,14 @@ class Filter extends Component {
     super(props)
     this.state = {
       artistArray: Object.entries(dropDownChoices),
-      artistYear: null,
+      artistYear: null
     }
 
     // let newNewArray = this.state.artistArray.map((artist, index) => {
     //   return artist[0]
     // })
     console.log(this.state.artistArray)
+    console.log(this.props.years)
     // console.log(this.state);
     // console.log(this.state.artistName)
   }
@@ -23,7 +24,18 @@ class Filter extends Component {
       return (
         <option key={index} value={artist[0]}>{artist[0]}</option>
       )
-      // let yearList = this.state.artistArray
+      // artistList.unshift(
+      //   <option key="0">Please Select a band</option>
+      // )
+    })
+
+    let yearList = this.props.years.map((year, index) => {
+      return (
+        <option key={index} value={year}>{year}</option>
+      )
+      // yearList.unshift(
+      //   <option key="0">Please Select a band</option>
+      // )
     })
     return (
       <div>
@@ -31,9 +43,14 @@ class Filter extends Component {
           <select id='artistOption' value={this.props.artistName} onChange={(e) => this.props.setArtistName(e)}>
             {artistList}
           </select>
-          <input type="submit" value="submit" />
+          <input type='submit' value='submit' />
         </form>
-        <select id='yearOption' />
+        <form onSubmit={(e) => this.props.submitYearChoice(e)}>
+          <select id='yearOption' value={this.props.yearChoice} onChange={(e) => this.props.setYearChoice(e)}>
+            {yearList}
+          </select>
+          <input type='submit' value='submit' />
+        </form>
       </div>
     )
   }
