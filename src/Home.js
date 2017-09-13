@@ -16,14 +16,15 @@ class Home extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      concertArray: [],
       mp3Url: null,
+      historyArray: [],
+      concertArray: [],
       concertId: null,
       dropDownChoices: dropDownChoices,
       artistName: ' ',
       years: [' '],
       yearChoice: ' ',
-      currentSongTitle: '<',
+      currentSongTitle: '',
       currentSong: {} // can get currentSong.title, currentSong.album
       // TODO: find picture url
     }
@@ -40,6 +41,8 @@ class Home extends Component {
       artistName: e.target.value,
       yearChoice: ' '
     }, function () {
+      // let scrubName = this.state.artistName.replace(/ [/]/g, '')
+// console.log(scrubName);
       let years = dropDownChoices[this.state.artistName] || [' ']
       this.setState({
         years: years
@@ -48,11 +51,10 @@ class Home extends Component {
   }
   submitArtistName (e) {
     e.preventDefault()
-
   }
   setYearChoice (e) {
     this.setState({
-      yearChoice: e.target.value
+      yearChoice: ' / ' + e.target.value
     }, function () {
       console.log(this.state.yearChoice)
     })
@@ -118,17 +120,16 @@ class Home extends Component {
       let baseUrl = 'https://' + response.d1
       let dir = response.dir
       let name = firstSong.name
-      let currentSongTitle = firstSong.title.replace(/[><]/g, '')
+      // let currentSongTitle = firstSong.title.replace(/[><]/g, '')
 
       this.setState({
+        mp3Url: baseUrl + dir + '/' + name,
         currentSong: firstSong,
-        currentSongTitle: currentSongTitle,
-        mp3Url: baseUrl + dir + '/' + name
+        // currentSongTitle: currentSongTitle
+
+      }, function () {
 
       })
-      console.log(this.state.currentSongTitle)
-
-      // console.log(this.state.mp3Url)
       // console.log(this.props.searchUrl);
     })
   }
@@ -137,11 +138,19 @@ class Home extends Component {
   }
 
   render () {
+
+    // let history = this.state.historyArray.map((name, url) => {
+    //   return (
+    //     <li key={url} onClick={() => console.log(url)}>
+    //       {name}
+    //     </li>
+    //   )
+    // })
     let station =
       <div>
-        <p>{this.state.artistName}</p>
-        <p>{this.state.yearChoice}</p>
+        <span>{this.state.artistName} {this.state.yearChoice}</span>
       </div>
+
     let songInfo =
       <div>
         <ul>
