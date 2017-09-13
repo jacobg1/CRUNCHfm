@@ -55,7 +55,8 @@ class Home extends Component {
   submitYearChoice (e) {
     e.preventDefault()
     // console.log(this.state.yearChoice)
-    $('.station').append(`<p>` + this.state.artistName + `, ` + this.state.yearChoice + `</p>`)
+    // $('.station').append(`<p>` + this.state.artistName + `, ` + this.state.yearChoice + `</p>`)
+    // $('select').val(' ')
   }
 
   getSearch () {
@@ -135,10 +136,16 @@ class Home extends Component {
   }
 
   render () {
+    let station =
+      <div>
+        <p>{this.state.artistName} {this.state.yearChoice}</p>
+      </div>
     return (
       <Router>
         <div className='App'>
           <h2>Show Crawler</h2>
+          {station}
+          <h3>song info:</h3>
           <Filter
             dropDownChoices={this.state.dropDownChoices}
             years={this.state.years}
