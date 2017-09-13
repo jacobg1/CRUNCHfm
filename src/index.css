@@ -11,7 +11,7 @@ audio {
   position: fixed;
   bottom: 0;
   display: block;
-  height: 200px;
+  height: 150px;
   width: 100%;
   background-color: red;
   color: red;
@@ -26,6 +26,7 @@ select {
    border-radius: 0;
    height: 34px;
    -webkit-appearance: none;
+   align-items: center;
 
    }
    #artistOption, #yearOption {
@@ -37,5 +38,4 @@ select {
       background-repeat: no-repeat;
       background-position: right;
       background-size: 32px;
-
       }

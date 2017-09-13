@@ -19,7 +19,7 @@ class Player extends Component {
     $('audio').attr('src', this.props.songUrl)
     console.log(this.props.songUrl)
 
-    this.next()
+    // this.next()
 
     // $('audio').addClass('audio')
     // $('.audio').bind('ended', function () {
@@ -31,6 +31,8 @@ class Player extends Component {
   }
   nextSong () {
     this.props.getSearch()
+    // $('select').val(' ')
+
   }
 
   render () {

@@ -30,16 +30,16 @@ class Filter extends Component {
     )
     let yearList = this.props.years.map((year, index) => {
       return (
-        <option key={index} value={year}>{year}</option>
+        <option key={index + 1} value={year}>{year}</option>
       )
-      // yearList.unshift(
-      //   <option key="0">Please Select a band</option>
-      // )
     })
+    yearList.unshift(
+      <option key='0'>Please Select a year</option>
+    )
     return (
       <div>
         <form onSubmit={(e) => this.props.submitArtistName(e)}>
-          <select id='artistOption' value={this.props.artistName} onChange={(e) => this.props.setArtistName(e)}>
+          <select id='artistOption' onChange={(e) => this.props.setArtistName(e)}>
             {artistList}
           </select>
           <input type='submit' value='submit' />
@@ -50,7 +50,7 @@ class Filter extends Component {
           </select>
           <input type='submit' value='submit' />
         </form>
-        <p className='station'></p>
+        <p className='station' />
       </div>
     )
   }
