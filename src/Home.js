@@ -36,25 +36,31 @@ class Home extends Component {
     this.setState({
       artistName: e.target.value,
       yearChoice: ' '
+    }, function () {
+      let years = dropDownChoices[this.state.artistName] || [' ']
+      this.setState({
+        years: years
+      })
     })
   }
   submitArtistName (e) {
     e.preventDefault()
-    let years = dropDownChoices[this.state.artistName] || [' ']
     // console.log(this.state.artistName)
     // console.log(years)
-    this.setState({
-      years: years
-    })
+    // this.setState({
+    //   years: years
+    // })
   }
   setYearChoice (e) {
     this.setState({
       yearChoice: e.target.value
+    }, function () {
+      console.log(this.state.yearChoice)
     })
+
   }
   submitYearChoice (e) {
     e.preventDefault()
-    // console.log(this.state.yearChoice)
     // $('.station').append(`<p>` + this.state.artistName + `, ` + this.state.yearChoice + `</p>`)
     // $('select').val(' ')
   }

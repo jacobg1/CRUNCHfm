@@ -42,13 +42,11 @@ class Filter extends Component {
           <select id='artistOption' onChange={(e) => this.props.setArtistName(e)}>
             {artistList}
           </select>
-          <input type='submit' value='submit' />
         </form>
         <form onSubmit={(e) => this.props.submitYearChoice(e)}>
           <select id='yearOption' value={this.props.yearChoice} onChange={(e) => this.props.setYearChoice(e)}>
             {yearList}
           </select>
-          <input type='submit' value='submit' />
         </form>
         <p className='station' />
       </div>
