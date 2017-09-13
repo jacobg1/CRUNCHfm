@@ -9,14 +9,6 @@ class Filter extends Component {
       artistArray: Object.entries(dropDownChoices),
       artistYear: null
     }
-
-    // let newNewArray = this.state.artistArray.map((artist, index) => {
-    //   return artist[0]
-    // })
-    // console.log(this.state.artistArray)
-    // console.log(this.props.years)
-    // console.log(this.state);
-    // console.log(this.state.artistName)
   }
 
   render () {

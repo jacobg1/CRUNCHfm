@@ -22,7 +22,10 @@ class Home extends Component {
       dropDownChoices: dropDownChoices,
       artistName: ' ',
       years: [' '],
-      yearChoice: ' '
+      yearChoice: ' ',
+      currentSongTitle: '<',
+      currentSong: {} // can get currentSong.title, currentSong.album
+      // TODO: find picture url
     }
     // this.getSearch('grateful_dead', '1970')
     this.nextSong = this.nextSong.bind(this)
@@ -45,11 +48,7 @@ class Home extends Component {
   }
   submitArtistName (e) {
     e.preventDefault()
-    // console.log(this.state.artistName)
-    // console.log(years)
-    // this.setState({
-    //   years: years
-    // })
+
   }
   setYearChoice (e) {
     this.setState({
@@ -57,12 +56,9 @@ class Home extends Component {
     }, function () {
       console.log(this.state.yearChoice)
     })
-
   }
   submitYearChoice (e) {
     e.preventDefault()
-    // $('.station').append(`<p>` + this.state.artistName + `, ` + this.state.yearChoice + `</p>`)
-    // $('select').val(' ')
   }
 
   getSearch () {
@@ -101,13 +97,6 @@ class Home extends Component {
       this.getConcert()
     })
   }
-  // setConcertId (e) {
-  //   this.setState({
-  //     concertId: e.target.value
-  //   })
-  //   this.getConcert(this.state.concertId)
-  //   console.log('ID', this.state.concertId)
-  // }
   getConcert () {
     let concertUrl = 'https://archive.org/metadata/' + this.state.concertId
     // console.log(concertUrl)
@@ -119,7 +108,7 @@ class Home extends Component {
       method: 'GET',
       dataType: 'jsonp'
     }).then((response) => {
-      console.log('get concert', response)
+      // console.log('get concert', response)
       let songsArray = response.files
       let mp3Array = songsArray.filter(function (song) {
         return song.format === 'VBR MP3'
@@ -129,10 +118,16 @@ class Home extends Component {
       let baseUrl = 'https://' + response.d1
       let dir = response.dir
       let name = firstSong.name
+      let currentSongTitle = firstSong.title.replace(/[><]/g, '')
+
       this.setState({
+        currentSong: firstSong,
+        currentSongTitle: currentSongTitle,
         mp3Url: baseUrl + dir + '/' + name
 
       })
+      console.log(this.state.currentSongTitle)
+
       // console.log(this.state.mp3Url)
       // console.log(this.props.searchUrl);
     })
@@ -144,7 +139,16 @@ class Home extends Component {
   render () {
     let station =
       <div>
-        <p>{this.state.artistName} {this.state.yearChoice}</p>
+        <p>{this.state.artistName}</p>
+        <p>{this.state.yearChoice}</p>
+      </div>
+    let songInfo =
+      <div>
+        <ul>
+          <p>{this.state.currentSong.album}</p>
+          <p>{this.state.currentSong.title}</p>
+          <p>{this.state.currentSong.name}</p>
+        </ul>
       </div>
     return (
       <Router>
@@ -152,6 +156,7 @@ class Home extends Component {
           <h2>Show Crawler</h2>
           {station}
           <h3>song info:</h3>
+          {songInfo}
           <Filter
             dropDownChoices={this.state.dropDownChoices}
             years={this.state.years}
