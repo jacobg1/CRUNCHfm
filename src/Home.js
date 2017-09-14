@@ -156,7 +156,7 @@ class Home extends Component {
 
     let playList = this.state.playList.map((song, index) => {
       return (
-        <p key={index}>
+        <p className='songsList' key={index}>
           {song.title}
         </p>
       )
@@ -176,7 +176,7 @@ class Home extends Component {
 
     return (
       <div className='App'>
-        <h2 className='title'>CRUNCH fm</h2>
+        <h2 className='title'><span>CRUNCH</span> fm</h2>
         <p className='welcomeToTheCrunch'>welcome to the crunch</p>
         <Grid>
           <div className='mainContainer'>
@@ -192,9 +192,8 @@ class Home extends Component {
                   submitYearChoice={this.submitYearChoice}
         />
               </div>
-              <p className='crunchyGrooves'>1. Choose artist</p>
-              <p className='crunchyGrooves'>2. (optional) Choose year</p>
-              <p className='crunchyGrooves'>3. Get crunching!</p>
+
+              <p className='crunchyGrooves'>Stay crunchy!</p>
             </Col>
             <Col sm={6} md={4}>
 
@@ -202,8 +201,6 @@ class Home extends Component {
                 {station}
 
                 <div className='songInfo'>
-
-                  <h3>song info:</h3>
                   {songInfo}
                 </div>
               </div>
@@ -212,7 +209,7 @@ class Home extends Component {
             <Col sm={6} md={4}>
               <div className='playList'>
 
-                <h3>playlist: {playList}</h3>
+                <div className='playListSongs'>{playList}</div>
               </div>
             </Col>
 
