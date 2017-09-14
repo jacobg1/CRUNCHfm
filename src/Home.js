@@ -163,62 +163,57 @@ class Home extends Component {
     })
     let station =
       <div>
-      <h3>Station</h3>
+        <h3>Station</h3>
         <p className='stationText'>{this.state.artistName} {this.state.yearChoice}</p>
       </div>
 
     let songInfo =
       <div>
-        <ul>
-          <p>{this.state.currentSong.album}</p>
-          <p>{this.state.currentSong.title}</p>
-          <p>{this.state.currentSong.name}</p>
-        </ul>
+        <p className='stationText'>{this.state.currentSong.album}</p>
+        <p className='stationText'>{this.state.currentSong.title}</p>
       </div>
       // $('playerContainer').children().css('width', '100%')
 
     return (
-
       <div className='App'>
-      <h2 className='title'>Show Crawler</h2>
-<Grid>
-      <div className='mainContainer'>
+        <h2 className='title'>Show Crawler</h2>
+        <Grid>
+          <div className='mainContainer'>
+            <Col sm={6} md={4}>
+              <div className='filter'>
+                <Filter
+                  dropDownChoices={this.state.dropDownChoices}
+                  years={this.state.years}
+                  yearChoice={this.state.yearChoice}
+                  setArtistName={this.setArtistName}
+                  submitArtistName={this.submitArtistName}
+                  setYearChoice={this.setYearChoice}
+                  submitYearChoice={this.submitYearChoice}
+        />
+              </div>
+            </Col>
+            <Col sm={6} md={4}>
 
-      <Col sm={6} md={4}>
+              <div className='station'>
+                {station}
 
-        <div className='station'>
-          {station}
+                <div className='songInfo'>
 
-        <div className='songInfo'>
+                  <h3>song info:</h3>
+                  {songInfo}
+                </div>
+              </div>
+            </Col>
 
-          <h3>song info:</h3>
-          {songInfo}
-        </div>
-        </div>
-        </Col>
+            <Col sm={6} md={4}>
+              <div className='playList'>
 
-        <Col sm={6} md={4}>
-        <div className='filter'>
-        <Filter
-          dropDownChoices={this.state.dropDownChoices}
-          years={this.state.years}
-          yearChoice={this.state.yearChoice}
-          setArtistName={this.setArtistName}
-          submitArtistName={this.submitArtistName}
-          setYearChoice={this.setYearChoice}
-          submitYearChoice={this.submitYearChoice}
-          />
+                <h3>playlist: {playList}</h3>
+              </div>
+            </Col>
+
           </div>
-          </Col>
-          <Col sm={6} md={4}>
-          <div className='playList'>
-
-          <h3>playlist: {playList}</h3>
-          </div>
-          </Col>
-
-          </div>
-  </Grid>
+        </Grid>
         <div className='playerContainer'>
 
           <Player

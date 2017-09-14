@@ -2,6 +2,7 @@ body {
   /*margin: 0;
   padding: 0;*/
   font-family: sans-serif;
+  background-color: blue;
 }
 
 audio {
@@ -56,20 +57,42 @@ div.col-md-4.col-sm-6 {
 
 
 }
+.songInfo {
+  padding-top: 75px;
+}
+.title {
+  background-color: red;
+  margin-top: 0px;
+}
+p {
+  text-align: center;
+}
 select {
   margin: auto;
 
 }
 .playList {
 justify-content: center;
+overflow-y: scroll;
+height: 250px;
+width: 250px;
+border: 3px solid black;
+
 }
+
 .station {
 
 }
-.App {
-
+.App-body {
+  width: 100%;
+  background-color: blue;
+}
+html {
+  background-image: url('http://www.splashscore.com/wp-content/uploads/Buku-Music-Festival-2013-Review.jpg');
+z-index: -1;
 
 }
+
 .title {
   text-align: center;
 }
@@ -79,3 +102,12 @@ justify-content: center;
 /*.audioElements__mainPlayer___1XqiC {
    width: 100%;
 }*/
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0,0,0,.5);
+        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
