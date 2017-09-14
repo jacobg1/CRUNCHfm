@@ -6,6 +6,11 @@ import Filter from './Filter.js'
 import dropDownChoices from './dropDownChoices.js'
 // import AudioPlayer from './AudioPlayer.js'
 import Audio from 'react-audioplayer'
+import {
+  Grid,
+  Row,
+  Col
+} from 'react-bootstrap'
 
 class Home extends Component {
   constructor (props) {
@@ -29,7 +34,7 @@ class Home extends Component {
       // TODO: find picture url
     }
     // this.getSearch('grateful_dead', '1970')
-    console.log(this.state.newPlayList);
+    console.log(this.state.newPlayList)
 
     this.nextSong = this.nextSong.bind(this)
     this.getSearch = this.getSearch.bind(this)
@@ -130,8 +135,7 @@ class Home extends Component {
         playList: updatedPlaylist
         // currentSongTitle: currentSongTitle
       }, function () {
-        console.log(this.state.playList);
-
+        console.log(this.state.playList)
       })
     })
   }
@@ -173,10 +177,16 @@ class Home extends Component {
     return (
       <div className='App'>
         <h2>Show Crawler</h2>
-        {station}
+        <Col xs={6} md={4}>
+          {station}
+        </Col>
         <h3>song info:</h3>
         {songInfo}
-        <h3>playlist: {playList}</h3>
+
+        <Col xs={6} md={4}>
+          <h3>playlist: {playList}</h3>
+        </Col>
+
         <Filter
           dropDownChoices={this.state.dropDownChoices}
           years={this.state.years}
@@ -190,8 +200,8 @@ class Home extends Component {
           getSearch={this.getSearch}
           nextSong={this.nextSong}
           songUrl={this.state.mp3Url} />
-          <div className='playerContainer'>
-          {/*<Audio
+        <div className='playerContainer'>
+          {/* <Audio
           width={800}
           height={400}
           autoPlay={true}
@@ -203,8 +213,8 @@ class Home extends Component {
             bottom: '0',
             opacity: '0.2'
           }}
-          />*/}
-          </div>
+          /> */}
+        </div>
       </div>
     )
   }

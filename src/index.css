@@ -1,12 +1,9 @@
-body {
+/*body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
-/*#buttons {
-  position: fixed;
-  top: 0;
-}*/
+
 audio {
   position: fixed;
   bottom: 0;
@@ -38,7 +35,7 @@ select {
   background-repeat: no-repeat;
   background-position: right;
   background-size: 32px;
-}
+}*/
 .playerContainer {
   /*position: fixed;
   bottom: 0;*/
