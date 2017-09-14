@@ -176,7 +176,8 @@ class Home extends Component {
 
     return (
       <div className='App'>
-        <h2 className='title'>Show Crawler</h2>
+        <h2 className='title'>CRUNCH fm</h2>
+        <p className='welcomeToTheCrunch'>welcome to the crunch</p>
         <Grid>
           <div className='mainContainer'>
             <Col sm={6} md={4}>
@@ -191,6 +192,9 @@ class Home extends Component {
                   submitYearChoice={this.submitYearChoice}
         />
               </div>
+              <p className='crunchyGrooves'>1. Choose artist</p>
+              <p className='crunchyGrooves'>2. (optional) Choose year</p>
+              <p className='crunchyGrooves'>3. Get crunching!</p>
             </Col>
             <Col sm={6} md={4}>
 

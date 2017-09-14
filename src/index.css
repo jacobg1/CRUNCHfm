@@ -83,6 +83,9 @@ border: 3px solid black;
 .station {
 
 }
+.crunchyGrooves {
+  font-size: 35px;
+}
 .App-body {
   width: 100%;
   background-color: blue;
@@ -95,9 +98,13 @@ z-index: -1;
 
 .title {
   text-align: center;
+  font-size: 65px;
 }
  h3 {
    text-align: center;
+ }
+ .welcomeToTheCrunch {
+   font-size: 40px;
  }
 /*.audioElements__mainPlayer___1XqiC {
    width: 100%;
