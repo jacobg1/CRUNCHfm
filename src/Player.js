@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
 import './index.css'
-
+import {
+  Button,
+  ButtonGroup
+} from 'react-bootstrap'
 class Player extends Component {
   constructor (props) {
     super(props)
@@ -25,9 +28,10 @@ class Player extends Component {
   render () {
     return (
       <div>
-        <div id='buttons'>
-          <button onClick={() => this.start()}>start</button>
-          <button onClick={() => this.next()}>next</button>
+        <div id='button'>
+        <ButtonGroup id='buttons' vertical block>
+          <Button onClick={() => this.start()}>start / next</Button>
+          </ButtonGroup>
         </div>
         <div id='player' />
         <audio controls autoPlay src={this.props.songUrl} onEnded={() => this.next()} color='red' />

@@ -9,7 +9,9 @@ import Audio from 'react-audioplayer'
 import {
   Grid,
   Row,
-  Col
+  Col,
+  Button,
+  ButtonGroup
 } from 'react-bootstrap'
 
 class Home extends Component {
@@ -154,14 +156,15 @@ class Home extends Component {
 
     let playList = this.state.playList.map((song, index) => {
       return (
-        <li key={index}>
+        <p key={index}>
           {song.title}
-        </li>
+        </p>
       )
     })
     let station =
       <div>
-        <span>{this.state.artistName} {this.state.yearChoice}</span>
+      <h3>Station</h3>
+        <p className='stationText'>{this.state.artistName} {this.state.yearChoice}</p>
       </div>
 
     let songInfo =
@@ -175,18 +178,27 @@ class Home extends Component {
       // $('playerContainer').children().css('width', '100%')
 
     return (
+
       <div className='App'>
-        <h2>Show Crawler</h2>
-        <Col xs={6} md={4}>
+      <h2 className='title'>Show Crawler</h2>
+<Grid>
+      <div className='mainContainer'>
+
+      <Col sm={6} md={4}>
+
+        <div className='station'>
           {station}
-        </Col>
-        <h3>song info:</h3>
-        {songInfo}
 
-        <Col xs={6} md={4}>
-          <h3>playlist: {playList}</h3>
+        <div className='songInfo'>
+
+          <h3>song info:</h3>
+          {songInfo}
+        </div>
+        </div>
         </Col>
 
+        <Col sm={6} md={4}>
+        <div className='filter'>
         <Filter
           dropDownChoices={this.state.dropDownChoices}
           years={this.state.years}
@@ -196,11 +208,23 @@ class Home extends Component {
           setYearChoice={this.setYearChoice}
           submitYearChoice={this.submitYearChoice}
           />
-        <Player
-          getSearch={this.getSearch}
-          nextSong={this.nextSong}
-          songUrl={this.state.mp3Url} />
+          </div>
+          </Col>
+          <Col sm={6} md={4}>
+          <div className='playList'>
+
+          <h3>playlist: {playList}</h3>
+          </div>
+          </Col>
+
+          </div>
+  </Grid>
         <div className='playerContainer'>
+
+          <Player
+            getSearch={this.getSearch}
+            nextSong={this.nextSong}
+            songUrl={this.state.mp3Url} />
           {/* <Audio
           width={800}
           height={400}
