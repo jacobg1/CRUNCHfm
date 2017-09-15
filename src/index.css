@@ -3,7 +3,7 @@ body {
   padding: 0;*/
   font-family: sans-serif;
   background-color: blue;
-
+/*font-family: 'Ruda', sans-serif;*/
 }
 
 audio {
@@ -14,7 +14,7 @@ audio {
   width: 100%;
 }
 select {
-  background: transparent;
+  background: aliceblue;
   width: 268px;
   padding: 5px;
   font-size: 22px;
@@ -26,6 +26,8 @@ select {
 }
 
 #artistOption, #yearOption {
+  font-family: 'Ruda', sans-serif;
+
   width: 100%;
   height: 40px;
   font-size: 20px;
@@ -44,6 +46,8 @@ select {
 #button {
   margin-top: 25px;
   text-align: center;
+  font-family: 'Ruda', sans-serif;
+
 }
 
 
@@ -60,50 +64,92 @@ div.col-md-4.col-sm-6 {
 }
 .songInfo {
   /*padding-top: 35px;*/
+  font-family: 'Ruda', sans-serif;
+
 }
 .title {
-  background-color: #e0ffdf;
+  /*background-color: #e0ffdf;*/
+  background-color: #fb7777;
   margin-top: 0px;
+  font-family: 'Ruda', sans-serif;
+  text-align: center;
+  font-size: 65px;
+  margin-bottom: 0;
+  border-bottom: 2px solid black;
+  font-family: 'Ruda', sans-serif;
+
   /*border-bottom: 3px solid black;*/
 
 }
 p {
   text-align: center;
+  font-family: 'Ruda', sans-serif;
 
 }
 select {
   margin: auto;
 
 }
+.playListTitle {
+  font-family: 'Ruda', sans-serif;
+
+}
 .playList {
 align-items: center;
+font-family: 'Ruda', sans-serif;
+
 margin: 0 auto;
 overflow-y: scroll;
-width: 250px;
+width: 275px;
 max-height: 250px;
 text-align: center;
+margin-bottom: 15px;
 /*border: 3px solid black;*/
 
+}
+.container {
+  height: 375px;
+  /*border-left: 2px solid black;
+  border-right: 2px solid black;*/
+  background-color: #fb7777;
+/*background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");*/
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 .songsList {
   /*border: 3px solid black;*/
   background-color: aliceblue;
-  font-size: 25px;
+  font-size: 22px;
   text-align: center;
+  cursor: pointer;
+  font-family: 'Ruda', sans-serif;
+
 }
 
 .station {
-
+  font-family: 'Ruda', sans-serif;
 }
 .stationText {
   font-family: fantasy;
   font-size: 22px;
+  font-family: 'Ruda', sans-serif;
+
 }
 .crunchyGrooves {
-
-  font-size: 36px;
+padding-top: 45px;
+  font-size: 40px;
   font-family: 'VT323', monospace;
 
+}
+.currentSongName {
+  font-size: 22px;
+  padding-bottom: 35px;
+  padding-top: 25px;
+  font-family: 'Ruda', sans-serif;
+
+}
+.currentSongAlbum {
+  font-size: 22px;
+  font-family: 'Ruda', sans-serif;
 }
 .Home {
 }
@@ -112,30 +158,33 @@ text-align: center;
   /*background-image: url('https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iti1_kl_SAQM/v1/-1x-1.jpg');*/
 /*background-size: cover;*/
 border-bottom: 3px solid black;
-background-color: #e0ffdf;
+background-color: #fb7777;
 }
 html {
   background-image: url('https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iti1_kl_SAQM/v1/-1x-1.jpg');
   background-size: cover;
   /*background-image: url('http://www.splashscore.com/wp-content/uploads/Buku-Music-Festival-2013-Review.jpg');*/
-z-index: -1;
+
 
 }
 span {
   font-family: 'VT323', monospace;
-
 }
 .title {
-  text-align: center;
-  font-size: 65px;
+
+
+
 }
  h3 {
    text-align: center;
+   font-family: 'Ruda', sans-serif;
 
  }
+
  .welcomeToTheCrunch {
-   font-size: 40px;
-   font-family: 'Frijole', cursive;
+   font-size: 28px;
+   /*font-family: 'Frijole', cursive;*/
+   font-family: 'VT323', monospace;
 
 
  }
@@ -154,18 +203,55 @@ span {
         background-color: rgba(0,0,0,.5);
         -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
     }
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
       .title {
-        font-size: 18px;
+        font-size: 50px;
       }
       .welcomeToTheCrunch {
         font-size: 18px;
       }
       .playList {
-        height: 100px;
+        height: 175px;
+        margin-top: 0;
       }
       .songsList {
         font-size: 18px;
 
       }
+      .currentSongName {
+        font-size: 15px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+      }
+      .crunchyGrooves {
+        margin-top: 5px;
+        margin-bottom: 0;
+        padding-top: 0px;
+        font-size: 30px;
+      }
+      .songInfo {
+        font-size: 15px;
+        /*float: left;*/
+
+
+      }
+      .songInfoTitle {
+        font-size: 18px;
+        padding-top: 0px;
+        margin-top: 0px;
+      }
+      .playListTitle {
+        font-size: 18px;
+      }
+      .currentSongAlbum {
+        font-size: 15px;
+        padding-top: 0px;
+      }
+      .station {
+        font-size: 18px;
+      }
+.container {
+  height: 600px;
+}
     }

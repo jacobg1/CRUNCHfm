@@ -21,8 +21,10 @@ class Home extends Component {
       playList: [],
       historyMp3Url: [],
       newPlayList: [{
-        name: 'test',
-        src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/wwy.mp3'
+        name: '',
+        src: '',
+        album:''
+
       }],
       mp3Url: null,
       historyArray: [],
@@ -78,6 +80,8 @@ class Home extends Component {
     console.log(song)
     $('audio').attr('src', song.src)
     $('.currentSongName').text(song.name)
+    $('.currentSongAlbum').text(song.album)
+
   }
 
   getSearch () {
@@ -139,6 +143,7 @@ class Home extends Component {
       let name = firstSong.name
       let newPlayList = this.state.newPlayList
       // let currentSongTitle = firstSong.title.replace(/[><]/g, '')
+      console.log(firstSong);
       let playListSongTitle = firstSong.title
       let updatedHistoryMp3Url = this.state.historyMp3Url.concat(baseUrl + dir + '/' + name)
       this.setState({
@@ -147,7 +152,8 @@ class Home extends Component {
         historyMp3Url: updatedHistoryMp3Url,
         newPlayList: newPlayList.concat({
           name: playListSongTitle,
-          src: baseUrl + dir + '/' + name
+          src: baseUrl + dir + '/' + name,
+          album: firstSong.album
         })
         // currentSongTitle: currentSongTitle
       }, function () {
@@ -176,28 +182,28 @@ class Home extends Component {
         </p>
       )
     })
-    let station =
-      <div>
-        <h3>Station</h3>
-        <p className='stationText'>{this.state.artistName} {this.state.yearChoice}</p>
-      </div>
+
 
     let songInfo =
       <div>
-        <h3>Song Info</h3>
-        <p className='stationText'>{this.state.currentSong.album}</p>
+        <h3 className='songInfoTitle'>Song Info</h3>
         <p className='currentSongName'>{this.state.currentSong.title}</p>
+        <p className='currentSongAlbum'>{this.state.currentSong.album}</p>
+
       </div>
       // $('playerContainer').children().css('width', '100%')
 
     return (
       <div className='App'>
-        <h2 className='title'><span>CRUNCH</span> fm</h2>
-        <p className='welcomeToTheCrunch'>welcome to the crunch</p>
+        <h2 className='title'><span>CRUNCH</span> FM</h2>
+
         <Grid>
           <div className='mainContainer'>
             <Col sm={4}>
+            <h3 className='station'>Station</h3>
+
               <div className='filter'>
+
                 <Filter
                   dropDownChoices={this.state.dropDownChoices}
                   years={this.state.years}
@@ -216,15 +222,15 @@ class Home extends Component {
 
             </Col>
             <Col sm={4}>
-              <div className='playList'>
+            <h3 className='playListTitle'>Playlist</h3>
 
+              <div className='playList'>
                 <div className='playListSongs'>{playList}</div>
               </div>
             </Col>
             <Col sm={4}>
 
               <div className='station'>
-                {station}
                 <div className='songInfo'>
                   {songInfo}
                 </div>
