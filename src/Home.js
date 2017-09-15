@@ -19,6 +19,7 @@ class Home extends Component {
     super(props)
     this.state = {
       playList: [],
+      historyMp3Url: [],
       newPlayList: [{
         name: 'test',
         src: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/wwy.mp3'
@@ -72,6 +73,13 @@ class Home extends Component {
     e.preventDefault()
   }
 
+  // change song to playlist song on click
+  playListSong (song) {
+    console.log(song)
+    $('audio').attr('src', song.src)
+    $('.currentSongName').text(song.name)
+  }
+
   getSearch () {
     let scrubArtistName = this.state.artistName.replace(/ /g, '_')
     let scrubYearChoice = this.state.yearChoice.replace(/\//g, '')
@@ -119,7 +127,7 @@ class Home extends Component {
       method: 'GET',
       dataType: 'jsonp'
     }).then((response) => {
-      // console.log('get concert', response)
+      console.log('get concert', response)
       let songsArray = response.files
       let mp3Array = songsArray.filter(function (song) {
         return song.format === 'VBR MP3'
@@ -129,15 +137,22 @@ class Home extends Component {
       let baseUrl = 'https://' + response.d1
       let dir = response.dir
       let name = firstSong.name
+      let newPlayList = this.state.newPlayList
       // let currentSongTitle = firstSong.title.replace(/[><]/g, '')
-      let updatedPlaylist = this.state.playList.concat(firstSong)
+      let playListSongTitle = firstSong.title
+      let updatedHistoryMp3Url = this.state.historyMp3Url.concat(baseUrl + dir + '/' + name)
       this.setState({
         mp3Url: baseUrl + dir + '/' + name,
         currentSong: firstSong,
-        playList: updatedPlaylist
+        historyMp3Url: updatedHistoryMp3Url,
+        newPlayList: newPlayList.concat({
+          name: playListSongTitle,
+          src: baseUrl + dir + '/' + name
+        })
         // currentSongTitle: currentSongTitle
       }, function () {
-        console.log(this.state.playList)
+        // console.log(this.state.historyMp3Url)
+        console.log('newPlayList', this.state.newPlayList)
       })
     })
   }
@@ -154,10 +169,10 @@ class Home extends Component {
     //   )
     // })
 
-    let playList = this.state.playList.map((song, index) => {
+    let playList = this.state.newPlayList.map((song, index) => {
       return (
-        <p className='songsList' key={index}>
-          {song.title}
+        <p className='songsList' key={index} onClick={() => this.playListSong(song)}>
+          {song.name}
         </p>
       )
     })
@@ -169,8 +184,9 @@ class Home extends Component {
 
     let songInfo =
       <div>
+        <h3>Song Info</h3>
         <p className='stationText'>{this.state.currentSong.album}</p>
-        <p className='stationText'>{this.state.currentSong.title}</p>
+        <p className='currentSongName'>{this.state.currentSong.title}</p>
       </div>
       // $('playerContainer').children().css('width', '100%')
 
@@ -180,7 +196,7 @@ class Home extends Component {
         <p className='welcomeToTheCrunch'>welcome to the crunch</p>
         <Grid>
           <div className='mainContainer'>
-            <Col sm={6} md={4}>
+            <Col sm={4}>
               <div className='filter'>
                 <Filter
                   dropDownChoices={this.state.dropDownChoices}
@@ -192,24 +208,26 @@ class Home extends Component {
                   submitYearChoice={this.submitYearChoice}
         />
               </div>
-
+              <Player
+                getSearch={this.getSearch}
+                nextSong={this.nextSong}
+                songUrl={this.state.mp3Url} />
               <p className='crunchyGrooves'>Stay crunchy!</p>
+
             </Col>
-            <Col sm={6} md={4}>
-
-              <div className='station'>
-                {station}
-
-                <div className='songInfo'>
-                  {songInfo}
-                </div>
-              </div>
-            </Col>
-
-            <Col sm={6} md={4}>
+            <Col sm={4}>
               <div className='playList'>
 
                 <div className='playListSongs'>{playList}</div>
+              </div>
+            </Col>
+            <Col sm={4}>
+
+              <div className='station'>
+                {station}
+                <div className='songInfo'>
+                  {songInfo}
+                </div>
               </div>
             </Col>
 
@@ -217,10 +235,6 @@ class Home extends Component {
         </Grid>
         <div className='playerContainer'>
 
-          <Player
-            getSearch={this.getSearch}
-            nextSong={this.nextSong}
-            songUrl={this.state.mp3Url} />
           {/* <Audio
           width={800}
           height={400}

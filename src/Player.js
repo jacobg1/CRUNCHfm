@@ -29,7 +29,7 @@ class Player extends Component {
     return (
       <div>
         <div id='button'>
-        <ButtonGroup id='buttons' vertical block>
+        <ButtonGroup id='buttons' vertical>
           <Button onClick={() => this.start()}>start / next</Button>
           </ButtonGroup>
         </div>
