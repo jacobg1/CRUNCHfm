@@ -23,7 +23,7 @@ class Home extends Component {
       newPlayList: [{
         name: '',
         src: '',
-        album:''
+        album: ''
 
       }],
       mp3Url: null,
@@ -81,7 +81,6 @@ class Home extends Component {
     $('audio').attr('src', song.src)
     $('.currentSongName').text(song.name)
     $('.currentSongAlbum').text(song.album)
-
   }
 
   getSearch () {
@@ -143,7 +142,7 @@ class Home extends Component {
       let name = firstSong.name
       let newPlayList = this.state.newPlayList
       // let currentSongTitle = firstSong.title.replace(/[><]/g, '')
-      console.log(firstSong);
+      console.log(firstSong)
       let playListSongTitle = firstSong.title
       let updatedHistoryMp3Url = this.state.historyMp3Url.concat(baseUrl + dir + '/' + name)
       this.setState({
@@ -183,7 +182,6 @@ class Home extends Component {
       )
     })
 
-
     let songInfo =
       <div>
         <h3 className='songInfoTitle'>Song Info</h3>
@@ -200,7 +198,7 @@ class Home extends Component {
         <Grid>
           <div className='mainContainer'>
             <Col sm={4}>
-            <h3 className='station'>Station</h3>
+              <h3 className='station'>Station</h3>
 
               <div className='filter'>
 
@@ -222,23 +220,30 @@ class Home extends Component {
 
             </Col>
             <Col sm={4}>
-            <h3 className='playListTitle'>Playlist</h3>
+              <h3 className='playListTitle'>Playlist</h3>
 
               <div className='playList'>
                 <div className='playListSongs'>{playList}</div>
+
               </div>
+
             </Col>
             <Col sm={4}>
 
               <div className='station'>
                 <div className='songInfo'>
                   {songInfo}
+
                 </div>
               </div>
+
             </Col>
 
           </div>
         </Grid>
+        <div className='gutiarContainer'>
+          <img src='http://images.clipartpanda.com/whole-pizza-clip-art-black-and-white-music-instrument-clipart-black-and-white-1339601213.png' />
+        </div>
         <div className='playerContainer'>
 
           {/* <Audio
