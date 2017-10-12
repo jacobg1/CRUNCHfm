@@ -5,21 +5,17 @@ import {
   Button,
   ButtonGroup
 } from 'react-bootstrap'
-class Player extends Component {
-  constructor (props) {
-    super(props)
-  }
 
+class Player extends Component {
   start () {
     this.props.getSearch()
     $('audio').attr('src', this.props.songUrl)
-    // console.log(this.props.songUrl)
-    //
-    // console.log(this.props.songUrl);
   }
+
   next () {
     this.nextSong()
   }
+
   nextSong () {
     this.props.getSearch()
     // $('select').val(' ')
@@ -29,13 +25,12 @@ class Player extends Component {
     return (
       <div>
         <div id='button'>
-        <ButtonGroup id='buttons' vertical>
-          <Button onClick={() => this.start()}>start / next</Button>
+          <ButtonGroup id='buttons' vertical>
+            <Button onClick={() => this.start()}>start / next</Button>
           </ButtonGroup>
         </div>
         <div id='player' />
         <audio controls autoPlay src={this.props.songUrl} onEnded={() => this.next()} color='red' />
-
       </div>
     )
   }

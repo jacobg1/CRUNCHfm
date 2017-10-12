@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import $ from 'jquery'
+// import $ from 'jquery'
 import dropDownChoices from './dropDownChoices.js'
 
 class Filter extends Component {
@@ -17,17 +17,21 @@ class Filter extends Component {
         <option key={index + 1} value={artist[0]}>{artist[0]}</option>
       )
     })
+
     artistList.unshift(
       <option key='0'>Please Select a band</option>
     )
+
     let yearList = this.props.years.map((year, index) => {
       return (
         <option key={index + 1} value={year}>{year}</option>
       )
     })
+
     yearList.unshift(
       <option key='0'>Please Select a year</option>
     )
+
     return (
       <div>
         <form onSubmit={(e) => this.props.submitArtistName(e)}>
@@ -45,4 +49,5 @@ class Filter extends Component {
     )
   }
 }
+
 export default Filter
