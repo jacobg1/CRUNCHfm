@@ -135,8 +135,10 @@ margin-bottom: 15px;
 .station {
   font-family: 'Ruda', sans-serif;
   font-size: 50px;
-  padding-bottom: 80px;
 
+}
+h3.station {
+  padding-bottom: 30px;
 }
 .stationText {
   font-size: 22px;
@@ -165,6 +167,13 @@ padding-top: 60px;
   font-family: 'Ruda', sans-serif;
 }
 .Home {
+}
+
+
+#buttons {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Ruda' ,sans-serif;
 }
 
 .App {
