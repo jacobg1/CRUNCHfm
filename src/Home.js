@@ -193,8 +193,9 @@ class Home extends Component {
 
     return (
       <div className='App'>
+      <div className='flameCd1Container'>{/*<img className='flameCd1' src='http://icons.iconarchive.com/icons/icons8/windows-8/512/Computer-Hardware-Burn-Cd-icon.png'/>*/}<img className='cdImg' src={require('./images/album_icon.png')}/></div>
         <h2 className='title'><span>CRUNCH</span> FM</h2>
-
+        {/*}<div><img className='flameCd2' src={require('./images/album_icon.png')}/></div>*/}
         <Grid>
           <div className='mainContainer'>
             <Col sm={4}>
@@ -242,7 +243,6 @@ class Home extends Component {
           </div>
         </Grid>
         <div className='gutiarContainer'>
-          <img src='http://images.clipartpanda.com/whole-pizza-clip-art-black-and-white-music-instrument-clipart-black-and-white-1339601213.png' />
         </div>
         <div className='playerContainer'>
 
