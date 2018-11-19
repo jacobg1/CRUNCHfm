@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import $ from 'jquery'
 import dropDownChoices from './dropDownChoices.js'
 
 class Filter extends Component {
